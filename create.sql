@@ -2,7 +2,7 @@ create database club_travel;
 
 CREATE TABLE traveler (
   id_traveler INTEGER PRIMARY KEY,
-  name TEXT NOT NULL,
+  name varchar(100) NOT NULL,
   email varchar(100) NOT NULL,
   image_link varchar(100) NOT NULL,
   image blob 
@@ -10,7 +10,7 @@ CREATE TABLE traveler (
 
 CREATE TABLE destinations (
   id_destinations INTEGER PRIMARY KEY,
-  name TEXT NOT NULL,
+  name varchar(100) NOT NULL,
   image_link varchar(100) NOT NULL,
   image blob 
 );
@@ -19,7 +19,7 @@ CREATE TABLE Events (
   id_events INTEGER PRIMARY KEY,
   start_date datetime NOT NULL,
   end_date datetime NOT NULL,
-  description TEXT NOT NULL,
+  description varchar(100) NOT NULL,
   id_destinations INTEGER,
   CONSTRAINT FK_id_destinations FOREIGN KEY (id_destinations)
   REFERENCES destinations(id_destinations)
@@ -28,9 +28,9 @@ CREATE TABLE Events (
 
 CREATE TABLE news (
    id_news INTEGER PRIMARY KEY,
-   title TEXT NOT NULL,
-   text TEXT NOT NULL,
-   subtitle TEXT NOT NULL,
+   title varchar(100) NOT NULL,
+   text varchar(200) NOT NULL,
+   subtitle varchar(300) NOT NULL,
    date_time datetime NOT NULL,
    image_link varchar(100) NOT NULL,
    image blob,
@@ -44,7 +44,7 @@ CREATE TABLE news (
 
 CREATE TABLE comments(
     id_comments INTEGER PRIMARY KEY,
-    text TEXT NOT NULL,
+    text varchar(300) NOT NULL,
     date_time datetime NOT NULL,
     id_traveler INTEGER,
     id_news INTEGER,
